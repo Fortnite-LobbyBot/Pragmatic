@@ -19,7 +19,7 @@ export enum CategoryConfigSupportedPlatforms {
 	Xsx = 'XSX'
 }
 
-export enum CategoryPartyPrivacy {
+export enum CategoryConfigPartyPrivacy {
 	Public = 0,
 	Private = 1
 }

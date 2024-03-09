@@ -1,16 +1,16 @@
 import type {
+	CategoryConfigPartyPrivacy,
 	CategoryConfigSupportedLanguages,
 	CategoryConfigSupportedPlatforms,
 	CategoryConfigTriggerAction,
-	CategoryConfigTriggerStringDetectionMethod,
-	CategoryPartyPrivacy
+	CategoryConfigTriggerStringDetectionMethod
 } from '../../enums/Category/Config';
 
 export interface IConfig {
 	replyLangs?: `${CategoryConfigSupportedLanguages}`[];
 	searchLangs?: `${CategoryConfigSupportedLanguages}`[];
 	platform?: `${CategoryConfigSupportedPlatforms}`[];
-	privacy?: `${CategoryPartyPrivacy}`;
+	privacy?: `${CategoryConfigPartyPrivacy}`;
 	prefixes?: string[];
 
 	extraOwners?: string[];
