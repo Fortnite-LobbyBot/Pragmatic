@@ -1,1 +1,2 @@
-export type * from './Bot';
+export * from './enums';
+export type * from './interfaces';
