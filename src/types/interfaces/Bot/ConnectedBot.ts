@@ -1,5 +1,5 @@
-import type { IPartyMember } from '..';
 import type { BotStatus, BotTypes } from '../../enums';
+import type { IPartyMember } from '../Party/Member';
 
 export interface IConnectedBot {
 	id: string;
