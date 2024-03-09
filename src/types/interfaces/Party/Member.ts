@@ -8,13 +8,12 @@ export interface ICosmeticVariantMeta {
 	c: string;
 	v: string;
 	dE?: number;
-}
-[];
+};
 
 export interface ICosmeticVariants {
-	outfit?: ICosmeticVariantMeta;
-	backpack?: ICosmeticVariantMeta;
-	pickaxe?: ICosmeticVariantMeta;
+	outfit?: ICosmeticVariantMeta[];
+	backpack?: ICosmeticVariantMeta[];
+	pickaxe?: ICosmeticVariantMeta[];
 }
 
 export interface IPartyMember {
