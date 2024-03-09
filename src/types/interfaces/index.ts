@@ -2,6 +2,7 @@ export type * from './Bot/Bot';
 export type * from './Bot/ConnectedBot';
 
 export type * from './Category/Category';
+export type * from './Category/Config';
 
 export type * from './Party/Member';
 
