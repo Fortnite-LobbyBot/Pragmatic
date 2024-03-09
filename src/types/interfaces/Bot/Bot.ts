@@ -3,14 +3,14 @@ import type { BotStatus, BotTypes } from '../../enums';
 
 export interface IBot {
 	id: string;
+	owner: string;
 	parent: string;
-	type: BotTypes;
-	status: BotStatus;
 	nickname: string;
-	epicId?: string;
-	friendsCount?: number;
-	party?: {
-		id?: string;
-		members: IPartyMember[];
+	type: BotTypes;
+	email: string;
+	deviceAuth: {
+		accountId: string;
+		deviceId: string;
+		secret: string;
 	};
 }
