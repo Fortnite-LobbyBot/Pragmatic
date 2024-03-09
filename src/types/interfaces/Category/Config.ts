@@ -1,15 +1,15 @@
 import type {
-	CategoryPartyPrivacy,
-	CategorySupportedLanguages,
-	CategorySupportedPlatforms,
-	CategoryTriggerAction,
-	CategoryTriggerStringDetectionMethod
-} from '../../enums/Category/Category';
+	CategoryConfigSupportedLanguages,
+	CategoryConfigSupportedPlatforms,
+	CategoryConfigTriggerAction,
+	CategoryConfigTriggerStringDetectionMethod,
+	CategoryPartyPrivacy
+} from '../../enums/Category/Config';
 
 export interface IConfig {
-	replyLangs?: `${CategorySupportedLanguages}`[];
-	searchLangs?: `${CategorySupportedLanguages}`[];
-	platform?: `${CategorySupportedPlatforms}`[];
+	replyLangs?: `${CategoryConfigSupportedLanguages}`[];
+	searchLangs?: `${CategoryConfigSupportedLanguages}`[];
+	platform?: `${CategoryConfigSupportedPlatforms}`[];
 	privacy?: `${CategoryPartyPrivacy}`;
 	prefixes?: string[];
 
@@ -43,37 +43,37 @@ export interface IConfig {
 
 	usernameTriggers?: {
 		triggers?: string[];
-		detectionMethods?: CategoryTriggerStringDetectionMethod[];
-		actions?: CategoryTriggerAction[];
+		detectionMethods?: CategoryConfigTriggerStringDetectionMethod[];
+		actions?: CategoryConfigTriggerAction[];
 		messages?: string[];
 	}[];
 
 	messageContentTriggers?: {
 		triggers?: string[];
-		detectionMethods?: CategoryTriggerStringDetectionMethod[];
-		actions?: CategoryTriggerAction[];
+		detectionMethods?: CategoryConfigTriggerStringDetectionMethod[];
+		actions?: CategoryConfigTriggerAction[];
 		messages?: string[];
 	}[];
 
 	cosmeticTriggers?: {
 		triggers?: string[];
-		detectionMethods?: CategoryTriggerStringDetectionMethod[];
-		actions?: CategoryTriggerAction[];
+		detectionMethods?: CategoryConfigTriggerStringDetectionMethod[];
+		actions?: CategoryConfigTriggerAction[];
 		messages?: string[];
 	}[];
 
 	addFriendTrigger?: {
-		actions?: CategoryTriggerAction[];
+		actions?: CategoryConfigTriggerAction[];
 		messages?: string[];
 	};
 
 	memberJoinTrigger?: {
-		actions?: CategoryTriggerAction[];
+		actions?: CategoryConfigTriggerAction[];
 		messages?: string[];
 	};
 
 	changeCosmeticTrigger?: {
-		actions?: CategoryTriggerAction[];
+		actions?: CategoryConfigTriggerAction[];
 		messages?: string[];
 	};
 

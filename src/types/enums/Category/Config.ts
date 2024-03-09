@@ -1,4 +1,4 @@
-export enum CategorySupportedLanguages {
+export enum CategoryConfigSupportedLanguages {
 	En = 'en',
 	Es = 'es',
 	De = 'de',
@@ -7,7 +7,7 @@ export enum CategorySupportedLanguages {
 	Pt = 'pt'
 }
 
-export enum CategorySupportedPlatforms {
+export enum CategoryConfigSupportedPlatforms {
 	Win = 'WIN',
 	Mac = 'MAC',
 	Psn = 'PSN',
@@ -24,14 +24,14 @@ export enum CategoryPartyPrivacy {
 	Private = 1
 }
 
-export enum CategoryTriggerStringDetectionMethod {
+export enum CategoryConfigTriggerStringDetectionMethod {
 	Equals = 0,
 	Includes = 1,
 	StartsWith = 2,
 	EndsWith = 3
 }
 
-export enum CategoryTriggerAction {
+export enum CategoryConfigTriggerAction {
 	ChatBan = 0,
 	Kick = 1,
 	Block = 2,
