@@ -6,7 +6,7 @@ import type {
 	CategoryTriggerStringDetectionMethod
 } from '../../enums/Category/Category';
 
-export interface Category {
+export interface ICategory {
 	replyLangs?: `${CategorySupportedLanguages}`[];
 	searchLangs?: `${CategorySupportedLanguages}`[];
 	platform?: `${CategorySupportedPlatforms}`[];
