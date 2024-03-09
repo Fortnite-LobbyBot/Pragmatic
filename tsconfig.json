@@ -8,7 +8,7 @@
 		"rootDir": "src",
 		"moduleDetection": "force",
 		"moduleResolution": "Bundler",
-		
+
 		"allowJs": true,
 		"emitDeclarationOnly": true,
 		"allowImportingTsExtensions": true,
@@ -29,7 +29,7 @@
 		"noUncheckedIndexedAccess": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"verbatimModuleSyntax": true,
+		"verbatimModuleSyntax": true
 	},
 	"include": ["src/**/*"],
 	"exclude": ["dist/", "node_modules/"]

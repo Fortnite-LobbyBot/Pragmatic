@@ -1,24 +1,23 @@
 {
-    "name": "@fnlb-project/shared",
-    "description": "FNLB Shared Library",
-    "version": "1.0.0",
-    "type": "module",
-    "scripts": {
-        "build": "bun run tsc && bun build --minify --target=bun --format=esm --outdir=./dist ./src/util/index.ts ./src/types/index.ts",
-        "lint": "bunx --bun @biomejs/biome check --apply .",
-        "prepare": "bun run build"
-    },
-    "author": "FNLB-Project",
-    "files": [
-        "dist"
-    ],
-    "exports": {
-        "./types": "./dist/types/index.js",
-        "./util": "./dist/util/index.js"
-    },
-    "devDependencies": {
-        "@biomejs/biome": "^1.6.0",
-        "@types/bun": "^1.0.8",
-        "typescript": "^5.4.2"
-    }
+	"name": "@fnlb-project/shared",
+	"description": "FNLB Shared Library",
+	"version": "1.0.0",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"build": "bun run tsc && bun build --minify --target=bun --format=esm --outdir=./dist ./src/util/index.ts ./src/types/index.ts",
+		"lint": "bunx --bun @biomejs/biome check --apply .",
+		"prepare": "bun run build"
+	},
+	"author": "FNLB-Project",
+	"files": ["dist"],
+	"exports": {
+		"./types": "./dist/types/index.js",
+		"./util": "./dist/util/index.js"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.6.0",
+		"@types/bun": "^1.0.8",
+		"typescript": "^5.4.2"
+	}
 }
