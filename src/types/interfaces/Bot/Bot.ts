@@ -6,10 +6,4 @@ export interface IBot {
 	parent: string;
 	nickname: string;
 	type: BotTypes;
-	email: string;
-	deviceAuth: {
-		accountId: string;
-		deviceId: string;
-		secret: string;
-	};
 }
