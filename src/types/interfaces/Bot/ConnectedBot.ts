@@ -1,12 +1,8 @@
-import type { BotStatus, BotTypes } from '../../enums';
-import type { IPartyMember } from '../Party/Member';
+import type { BotStatus } from '../../enums';
+import type { IPartyMember } from '../party/PartyMember';
+import type { IBot } from './Bot';
 
-export interface IConnectedBot {
-	id: string;
-	owner: string;
-	parent: string;
-	nickname: string;
-	type: BotTypes;
+export interface IConnectedBot extends IBot {
 	status: BotStatus;
 	epicId?: string;
 	friendsCount?: number;

@@ -1,9 +1,6 @@
-import type { BotTypes } from '../../enums';
+import type { IClientBot } from './ClientBot';
 
-export interface IBot {
-	id: string;
-	owner: string;
-	parent: string;
-	nickname: string;
-	type: BotTypes;
+export interface IBot extends IClientBot {
+	email: never;
+	deviceAuth: never;
 }

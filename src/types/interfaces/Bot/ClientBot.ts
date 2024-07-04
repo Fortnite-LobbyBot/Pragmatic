@@ -1,10 +1,3 @@
-import type { IBot } from './Bot';
+import type { IDBBot } from './DBBot';
 
-export interface IClientBot extends IBot {
-	email: string;
-	deviceAuth: {
-		accountId: string;
-		deviceId: string;
-		secret: string;
-	};
-}
+export interface IClientBot extends IDBBot {}

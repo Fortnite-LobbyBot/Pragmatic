@@ -1,8 +1,3 @@
-import type { ICategoryConfig } from './Config';
+import type { IDBCategory } from './DBCategory';
 
-export interface ICategory {
-	id: string;
-	owner: string;
-	name: string;
-	config: ICategoryConfig;
-}
+export interface ICategory extends IDBCategory {}

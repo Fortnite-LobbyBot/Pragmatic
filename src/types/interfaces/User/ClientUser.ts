@@ -1,16 +1,6 @@
-export interface IClientUser {
-	id: string;
-	username: string;
-	email: string;
-	apiToken: string;
-	connections: {
-		epic?: {
-			id: string;
-			username: string;
-		};
-		discord?: {
-			id: string;
-			username: string;
-		};
-	};
+import type { IDBUser } from './DBUser';
+
+export interface IClientUser extends IDBUser {
+	token: never;
+	password: never;
 }

@@ -56,12 +56,24 @@ export declare enum Locales {
 	Pt = "pt",
 	Tr = "tr"
 }
-export interface IBot {
+export interface IDBBot {
 	id: string;
 	owner: string;
 	parent: string;
 	nickname: string;
 	type: BotTypes;
+	email: string;
+	deviceAuth: {
+		accountId: string;
+		deviceId: string;
+		secret: string;
+	};
+}
+export interface IClientBot extends IDBBot {
+}
+export interface IBot extends IClientBot {
+	email: never;
+	deviceAuth: never;
 }
 export interface ICosmeticVariantData {
 	t: string;
@@ -94,12 +106,7 @@ export interface IPartyMember {
 	isSittingOut?: boolean;
 	isPlaying?: boolean;
 }
-export interface IConnectedBot {
-	id: string;
-	owner: string;
-	parent: string;
-	nickname: string;
-	type: BotTypes;
+export interface IConnectedBot extends IBot {
 	status: BotStatus;
 	epicId?: string;
 	friendsCount?: number;
@@ -108,12 +115,13 @@ export interface IConnectedBot {
 		members: IPartyMember[];
 	};
 }
-export interface IConnectedClientBot extends IConnectedBot {
-	email: string;
-	deviceAuth: {
-		accountId: string;
-		deviceId: string;
-		secret: string;
+export interface IConnectedClientBot extends IClientBot {
+	status: BotStatus;
+	epicId?: string;
+	friendsCount?: number;
+	party?: {
+		id?: string;
+		members: IPartyMember[];
 	};
 }
 export interface ICategoryConfig {
@@ -207,20 +215,22 @@ export interface ICategoryConfig {
 	memberJoinEmoji?: string[];
 	memberJoinBanner?: string[];
 }
-export interface ICategory {
+export interface IDBCategory {
 	id: string;
 	owner: string;
 	name: string;
 	config: ICategoryConfig;
 }
-export interface IUser {
+export interface ICategory extends IDBCategory {
+}
+export interface IDBUser {
 	id: string;
 	token: string;
 	username: string;
 	email: string;
 	password: string;
 	apiToken: string;
-	connections: {
+	connections?: {
 		epic?: {
 			id: string;
 			username: string;
@@ -230,6 +240,10 @@ export interface IUser {
 			username: string;
 		};
 	};
+}
+export interface IClientUser extends IDBUser {
+	token: never;
+	password: never;
 }
 
 export {};

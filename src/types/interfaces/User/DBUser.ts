@@ -1,11 +1,11 @@
-export interface IUser {
+export interface IDBUser {
 	id: string;
 	token: string;
 	username: string;
 	email: string;
 	password: string;
 	apiToken: string;
-	connections: {
+	connections?: {
 		epic?: {
 			id: string;
 			username: string;
