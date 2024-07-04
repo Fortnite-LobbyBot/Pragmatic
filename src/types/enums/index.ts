@@ -1,6 +1,6 @@
-export * from './Bot/BotTypes';
-export * from './Bot/BotStatus';
+export * from './bot/BotTypes';
+export * from './bot/BotStatus';
 
-export * from './Category/Config';
+export * from './category/Config';
 
-export * from './Locales/Locales';
+export * from './locales/Locales';

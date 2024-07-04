@@ -4,7 +4,7 @@ import type {
 	CategoryConfigSupportedPlatforms,
 	CategoryConfigTriggerAction,
 	CategoryConfigTriggerStringDetectionMethod
-} from '../../enums/Category/Config';
+} from '../../enums/category/Config';
 
 export interface ICategoryConfig {
 	replyLangs?: Locales[];

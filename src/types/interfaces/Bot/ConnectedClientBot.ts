@@ -1,10 +1,13 @@
-import type { IConnectedBot } from './ConnectedBot';
+import type { BotStatus } from '../../enums';
+import type { IPartyMember } from '../party/PartyMember';
+import type { IClientBot } from './ClientBot';
 
-export interface IConnectedClientBot extends IConnectedBot {
-	email: string;
-	deviceAuth: {
-		accountId: string;
-		deviceId: string;
-		secret: string;
+export interface IConnectedClientBot extends IClientBot {
+	status: BotStatus;
+	epicId?: string;
+	friendsCount?: number;
+	party?: {
+		id?: string;
+		members: IPartyMember[];
 	};
 }
