@@ -6,7 +6,7 @@ import type {
 	CategoryConfigTriggerStringDetectionMethod
 } from '../../enums/Category/Config';
 
-export interface IConfig {
+export interface ICategoryConfig {
 	replyLangs?: Locales[];
 	searchLangs?: Locales[];
 	platform?: `${CategoryConfigSupportedPlatforms}`[];

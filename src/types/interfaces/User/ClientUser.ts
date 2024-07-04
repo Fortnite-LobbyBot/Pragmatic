@@ -1,9 +1,7 @@
-export interface IUser {
+export interface IClientUser {
 	id: string;
-	token: string;
 	username: string;
 	email: string;
-	password: string;
 	apiToken: string;
 	connections: {
 		epic?: {

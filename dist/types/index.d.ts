@@ -62,12 +62,6 @@ export interface IBot {
 	parent: string;
 	nickname: string;
 	type: BotTypes;
-	email: string;
-	deviceAuth: {
-		accountId: string;
-		deviceId: string;
-		secret: string;
-	};
 }
 export interface ICosmeticVariantData {
 	t: string;
@@ -114,7 +108,15 @@ export interface IConnectedBot {
 		members: IPartyMember[];
 	};
 }
-export interface IConfig {
+export interface IConnectedClientBot extends IConnectedBot {
+	email: string;
+	deviceAuth: {
+		accountId: string;
+		deviceId: string;
+		secret: string;
+	};
+}
+export interface ICategoryConfig {
 	replyLangs?: Locales[];
 	searchLangs?: Locales[];
 	platform?: `${CategoryConfigSupportedPlatforms}`[];
@@ -206,22 +208,24 @@ export interface IConfig {
 	memberJoinBanner?: string[];
 }
 export interface ICategory {
+	id: string;
 	owner: string;
 	name: string;
-	config: IConfig;
+	config: ICategoryConfig;
 }
 export interface IUser {
+	id: string;
 	token: string;
 	username: string;
 	email: string;
 	password: string;
 	apiToken: string;
 	connections: {
-		discord: {
+		epic?: {
 			id: string;
 			username: string;
 		};
-		epic: {
+		discord?: {
 			id: string;
 			username: string;
 		};
