@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
+	"$schema": "https://biomejs.dev/schemas/1.8.0/schema.json",
 	"files": {
 		"ignoreUnknown": true
 	},
@@ -22,7 +22,7 @@
 			"quoteProperties": "asNeeded",
 			"quoteStyle": "single",
 			"semicolons": "always",
-			"trailingComma": "none"
+			"trailingCommas": "none"
 		}
 	},
 	"json": {
