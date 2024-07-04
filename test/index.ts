@@ -3,6 +3,6 @@ import { cutText } from '../dist/util';
 
 console.log(cutText('hello world', 4, false));
 
-const botStatus = BotStatus.Available
+const botStatus = BotStatus.Available;
 
-console.log(botStatus)
+console.log(botStatus);

@@ -1,12 +1,3 @@
-export enum CategoryConfigSupportedLanguages {
-	En = 'en',
-	Es = 'es',
-	De = 'de',
-	Fr = 'fr',
-	It = 'it',
-	Pt = 'pt'
-}
-
 export enum CategoryConfigSupportedPlatforms {
 	Win = 'WIN',
 	Mac = 'MAC',
