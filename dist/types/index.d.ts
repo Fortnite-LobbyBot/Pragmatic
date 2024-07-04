@@ -11,14 +11,6 @@ export declare enum BotStatus {
 	Busy = 3,
 	Disconnected = 4
 }
-export declare enum CategoryConfigSupportedLanguages {
-	En = "en",
-	Es = "es",
-	De = "de",
-	Fr = "fr",
-	It = "it",
-	Pt = "pt"
-}
 export declare enum CategoryConfigSupportedPlatforms {
 	Win = "WIN",
 	Mac = "MAC",
@@ -53,6 +45,16 @@ export declare enum CategoryConfigTriggerAction {
 	Show = 9,
 	Blacklist = 10,
 	Whitelist = 11
+}
+export declare enum Locales {
+	Default = "en",
+	De = "de",
+	Es = "es",
+	Fr = "fr",
+	It = "it",
+	Pl = "pl",
+	Pt = "pt",
+	Tr = "tr"
 }
 export interface IBot {
 	id: string;
@@ -113,8 +115,8 @@ export interface IConnectedBot {
 	};
 }
 export interface IConfig {
-	replyLangs?: `${CategoryConfigSupportedLanguages}`[];
-	searchLangs?: `${CategoryConfigSupportedLanguages}`[];
+	replyLangs?: Locales[];
+	searchLangs?: Locales[];
 	platform?: `${CategoryConfigSupportedPlatforms}`[];
 	privacy?: `${CategoryConfigPartyPrivacy}`;
 	prefixes?: string[];
@@ -128,6 +130,8 @@ export interface IConfig {
 	statusInterval?: number[];
 	level?: number[];
 	bpLevel?: number[];
+	disableMatchmakingChecks?: boolean;
+	disableJoinMessages?: boolean;
 	inviteTimeout?: number;
 	maxBotsPerLobby?: number;
 	maxBotsPerLobbyWithOwner?: number;

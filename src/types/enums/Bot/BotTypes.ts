@@ -1,4 +1,4 @@
 export enum BotTypes {
-	Public,
-	Private
+	Public = 0,
+	Private = 1
 }

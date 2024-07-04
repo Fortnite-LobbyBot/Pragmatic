@@ -1,14 +1,14 @@
+import type { Locales } from '../../enums';
 import type {
 	CategoryConfigPartyPrivacy,
-	CategoryConfigSupportedLanguages,
 	CategoryConfigSupportedPlatforms,
 	CategoryConfigTriggerAction,
 	CategoryConfigTriggerStringDetectionMethod
 } from '../../enums/Category/Config';
 
 export interface IConfig {
-	replyLangs?: `${CategoryConfigSupportedLanguages}`[];
-	searchLangs?: `${CategoryConfigSupportedLanguages}`[];
+	replyLangs?: Locales[];
+	searchLangs?: Locales[];
 	platform?: `${CategoryConfigSupportedPlatforms}`[];
 	privacy?: `${CategoryConfigPartyPrivacy}`;
 	prefixes?: string[];
@@ -25,6 +25,9 @@ export interface IConfig {
 
 	level?: number[];
 	bpLevel?: number[];
+
+	disableMatchmakingChecks?: boolean;
+	disableJoinMessages?: boolean;
 
 	inviteTimeout?: number;
 
