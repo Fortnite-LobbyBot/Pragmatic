@@ -5,9 +5,10 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"build": "bun run tsc && bun build --minify --target=bun --format=esm --outdir=./dist ./src/util/index.ts ./src/types/index.ts",
-		"lint": "bunx --bun @biomejs/biome check --apply .",
-		"prepare": "bun run build"
+		"build": "bun run build.ts",
+		"prepublishOnly": "bun run src/build",
+		"lint": "bunx --bun @biomejs/biome check --write .",
+		"test": "bun run test/index.ts"
 	},
 	"author": "FNLB-Project",
 	"files": ["dist"],
@@ -16,8 +17,10 @@
 		"./util": "./dist/util/index.js"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^1.6.0",
-		"@types/bun": "^1.0.8",
-		"typescript": "^5.4.2"
-	}
+		"@biomejs/biome": "^1.8.3",
+		"@types/bun": "^1.1.6",
+		"bun-plugin-dts": "^0.2.3",
+		"typescript": "^5.5.3"
+	},
+	"packageManager": "bun@1.1.17"
 }

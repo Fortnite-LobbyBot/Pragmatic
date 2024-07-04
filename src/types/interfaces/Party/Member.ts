@@ -8,7 +8,7 @@ export interface ICosmeticVariantMeta {
 	c: string;
 	v: string;
 	dE?: number;
-};
+}
 
 export interface ICosmeticVariants {
 	outfit?: ICosmeticVariantMeta[];
