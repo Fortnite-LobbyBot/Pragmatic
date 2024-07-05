@@ -1,2 +1,3 @@
-export * from './wait';
-export * from './cutText';
+export * from './classes/AuthUtil';
+export * from './classes/PromiseUtil';
+export * from './classes/TextUtil';
