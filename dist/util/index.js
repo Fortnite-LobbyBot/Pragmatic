@@ -1,2 +1,2 @@
 // @bun
-var t=(r)=>{return new Promise((e)=>setTimeout(e,r))};var n=(r,e,o=!0)=>{return r.length>e?`${r.slice(0,o?Math.max(e-3,0):e)}${o?"...":""}`:r};export{t as wait,n as cutText};
+class i{static encodeToken(r,t){return Buffer.from(`${r}.${t}`).toString("base64").replaceAll("=","")}static decodeToken(r){const[t,e]=Buffer.from(r,"base64").toString("utf8").split(".");if(!t||!e)return null;return{id:t,auth:e}}}class s{static wait(r){return new Promise((t)=>setTimeout(t,r))}}class n{static cutText(r,t,e=!0){return r.length>t?`${r.slice(0,e?Math.max(t-3,0):t)}${e?"...":""}`:r}}export{n as TextUtil,s as PromiseUtil,i as AuthUtil};

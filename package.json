@@ -7,7 +7,9 @@
 	"scripts": {
 		"build": "bun run build.ts",
 		"prepublishOnly": "bun run src/build",
-		"lint": "bunx --bun @biomejs/biome check --write .",
+		"lint": "bun run lint:biome && bun run lint:tsc",
+		"lint:biome": "bun biome check --write .",
+		"lint:tsc": "bun tsc --noEmit",
 		"test": "bun run test/index.ts"
 	},
 	"author": "FNLB-Project",

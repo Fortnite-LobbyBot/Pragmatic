@@ -10,8 +10,6 @@
 		"moduleResolution": "Bundler",
 
 		"allowJs": true,
-		"emitDeclarationOnly": true,
-		"allowImportingTsExtensions": true,
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 
