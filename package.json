@@ -15,8 +15,8 @@
 	"author": "FNLB-Project",
 	"files": ["dist"],
 	"exports": {
-		"./types": "./dist/types/index.js",
-		"./util": "./dist/util/index.js"
+		"./types": "./src/types/index.ts",
+		"./util": "./src/util/index.ts"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.8.3",
