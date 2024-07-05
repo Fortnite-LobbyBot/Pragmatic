@@ -1,7 +1,7 @@
 import { BotStatus } from '../dist/types';
-import { cutText } from '../dist/util';
+import { TextUtil } from '../dist/util';
 
-console.log(cutText('hello world', 4, false));
+console.log(TextUtil.cutText('hello world', 4, false));
 
 const botStatus = BotStatus.Available;
 
