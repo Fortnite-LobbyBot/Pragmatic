@@ -1,3 +1,6 @@
+import type { errorMap } from './ErrorMap';
+import type { ErrorTypes } from './ErrorTypes';
+
 export enum ErrorCodes {
 	// * Common
 	CommonInvalidRequest = 'net.fnlb.errors.common.invalid_request',
@@ -31,3 +34,11 @@ export enum ErrorCodes {
 	ReleaseNotFound = 'net.fnlb.errors.release.no_release_found',
 	ReleaseVersionAlreadyExists = 'net.fnlb.errors.release.version_already_exists'
 }
+
+export type GeneralErrorCodes = {
+	[K in keyof typeof errorMap]: (typeof errorMap)[K] extends { type: ErrorTypes.General } ? K : never;
+}[keyof typeof errorMap];
+
+export type InputErrorCodes = {
+	[K in keyof typeof errorMap]: (typeof errorMap)[K] extends { type: ErrorTypes.Input } ? K : never;
+}[keyof typeof errorMap];
