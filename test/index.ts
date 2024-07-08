@@ -1,5 +1,5 @@
-import { BotStatus } from '../dist/types';
-import { TextUtil } from '../dist/util';
+import { BotStatus } from '../src/types';
+import { TextUtil } from '../src/util';
 
 console.log(TextUtil.cutText('hello world', 4, false));
 
