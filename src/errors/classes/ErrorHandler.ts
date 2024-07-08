@@ -5,7 +5,7 @@ interface ErrorSchema {
 	type: ErrorTypes;
 }
 
-const errorMap: Record<ErrorCodes, ErrorSchema> = {
+const errorMap = {
 	[ErrorCodes.CommonInvalidRequest]: {
 		type: ErrorTypes.General,
 		message: 'The request is not valid.'
@@ -97,10 +97,20 @@ const errorMap: Record<ErrorCodes, ErrorSchema> = {
 		type: ErrorTypes.General,
 		message: 'Release version already exists.'
 	}
+} as const;
+
+type AssertErrorMapType = {
+	[K in keyof typeof errorMap]: ErrorSchema;
 };
 
+function validateErrorMapType<T extends AssertErrorMapType>(map: T): T {
+	return map;
+}
+
+const validatedErrorMap = validateErrorMapType(errorMap);
+
 export abstract class ErrorHandler {
-	public static getError(error: ErrorCodes): ErrorSchema {
-		return errorMap[error];
+	public static getError<T extends ErrorCodes>(error: T): (typeof errorMap)[T] {
+		return validatedErrorMap[error];
 	}
 }
