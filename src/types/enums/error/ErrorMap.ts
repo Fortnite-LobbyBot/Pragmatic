@@ -98,14 +98,4 @@ export const errorMap = {
 		type: ErrorTypes.General,
 		message: 'Release version already exists.'
 	}
-} as const;
-
-type AssertErrorMapType = {
-	[K in keyof typeof errorMap]: ErrorSchema;
-};
-
-function validateErrorMapType<T extends AssertErrorMapType>(map: T): T {
-	return map;
-}
-
-export const validatedErrorMap = validateErrorMapType(errorMap);
+} as const satisfies Record<ErrorCodes, ErrorSchema>;
