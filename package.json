@@ -15,9 +15,18 @@
 	"author": "FNLB-Project",
 	"files": ["dist"],
 	"exports": {
-		"./errors": "./src/errors/index.ts",
-		"./types": "./src/types/index.ts",
-		"./util": "./src/util/index.ts"
+		"./errors": {
+			"default": "./src/errors/index.ts",
+			"types": "./src/errors/index.ts"
+		},
+		"./types": {
+			"default": "./src/types/index.ts",
+			"types": "./src/types/index.ts"
+		},
+		"./util": {
+			"default": "./src/util/index.ts",
+			"types": "./src/util/index.ts"
+		}
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.8.3",
