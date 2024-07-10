@@ -3,6 +3,9 @@
 	"description": "FNLB Shared Library",
 	"version": "1.0.3",
 	"type": "module",
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"build": "bun run build.ts",
 		"prepublishOnly": "bun run build",

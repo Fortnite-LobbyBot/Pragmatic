@@ -1,0 +1,33 @@
+name: CD -> Release
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - stable
+
+jobs:
+    release:
+        name: 'Release to NPM'
+        runs-on: ubuntu-latest
+        permissions:
+            id-token: write
+
+        steps:
+            - name: 'Checkout'
+              uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+              with:
+                  persist-credentials: false
+
+            - name: 'Setup Bun'
+              uses: oven-sh/setup-bun@123c6c4e2fea3eb7bffaa91a85eb6b3d505bf7af # v2
+
+            - name: 'Install dependencies'
+              run: bun i
+
+            - name: 'Install npm'
+              run: bun install -g npm
+
+            - name: 'Build and Publish'
+              run: bunx --bun npm publish --provenance --tag latest
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
