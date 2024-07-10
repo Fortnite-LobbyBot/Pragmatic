@@ -3,10 +3,9 @@
 	"description": "FNLB Shared Library",
 	"version": "1.0.3",
 	"type": "module",
-	"private": true,
 	"scripts": {
 		"build": "bun run build.ts",
-		"prepublishOnly": "bun run src/build",
+		"prepublishOnly": "bun run build",
 		"lint": "bun run lint:biome && bun run lint:tsc",
 		"lint:biome": "bun biome check --write .",
 		"lint:tsc": "bun tsc --noEmit",
@@ -16,16 +15,16 @@
 	"files": ["dist"],
 	"exports": {
 		"./errors": {
-			"default": "./src/errors/index.ts",
-			"types": "./src/errors/index.ts"
+			"default": "./dist/errors/index.js",
+			"types": "./dist/errors/index.d.ts"
 		},
 		"./types": {
-			"default": "./src/types/index.ts",
-			"types": "./src/types/index.ts"
+			"default": "./dist/types/index.js",
+			"types": "./dist/types/index.d.ts"
 		},
 		"./util": {
-			"default": "./src/util/index.ts",
-			"types": "./src/util/index.ts"
+			"default": "./dist/util/index.js",
+			"types": "./dist/util/index.d.ts"
 		}
 	},
 	"devDependencies": {
