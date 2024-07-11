@@ -1,7 +1,4 @@
-import type { errorMap } from './ErrorMap';
-import type { ErrorTypes } from './ErrorTypes';
-
-export enum ErrorCodes {
+export enum GeneralErrorCodes {
 	// * Common
 	CommonInvalidRequest = 'net.fnlb.errors.common.invalid_request',
 	CommonUnableToProcessRequest = 'net.fnlb.errors.common.unable_to_process_request',
@@ -15,11 +12,6 @@ export enum ErrorCodes {
 	AuthInvalidCaptchaToken = 'net.fnlb.errors.auth.invalid_captcha_token',
 	AuthUnauthorized = 'net.fnlb.errors.auth.unauthorized',
 	AuthUserBanned = 'net.fnlb.errors.auth.user_banned',
-
-	// * Login
-	LoginInvalidCredentials = 'net.fnlb.errors.login.invalid_credentials',
-	LoginInvalidEmail = 'net.fnlb.errors.login.invalid_email',
-	LoginInvalidOrUsedEmail = 'net.fnlb.errors.login.invalid_or_used_email',
 
 	// * Oauth2
 	Oauth2InvalidCode = 'net.fnlb.errors.oauth2.invalid_code',
@@ -35,10 +27,16 @@ export enum ErrorCodes {
 	ReleaseVersionAlreadyExists = 'net.fnlb.errors.release.version_already_exists'
 }
 
-export type GeneralErrorCodes = {
-	[K in keyof typeof errorMap]: (typeof errorMap)[K] extends { type: ErrorTypes.General } ? K : never;
-}[keyof typeof errorMap];
+export enum InputErrorCodes {
+	// * Login
+	LoginInvalidCredentials = 'net.fnlb.errors.login.invalid_credentials',
+	LoginInvalidEmail = 'net.fnlb.errors.login.invalid_email',
+	LoginInvalidOrUsedEmail = 'net.fnlb.errors.login.invalid_or_used_email'
+}
 
-export type InputErrorCodes = {
-	[K in keyof typeof errorMap]: (typeof errorMap)[K] extends { type: ErrorTypes.Input } ? K : never;
-}[keyof typeof errorMap];
+export type ErrorCodes = GeneralErrorCodes | InputErrorCodes;
+
+export const ErrorCodes = {
+	...GeneralErrorCodes,
+	...InputErrorCodes
+} as const;
