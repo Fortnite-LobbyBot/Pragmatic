@@ -1,4 +1,11 @@
 export enum GeneralErrorCodes {
+	// * Generic
+	GenericUnknown = 'net.fnlb.errors.generic.unknown',
+	GenericInternalError = 'net.fnlb.errors.generic.internal_error',
+	GenericValidationFailed = 'net.fnlb.errors.generic.validation_failed',
+	GenericParseFailed = 'net.fnlb.errors.generic.parse_failed',
+	GenericNotFound = 'net.fnlb.errors.generic.not_found',
+
 	// * Common
 	CommonInvalidRequest = 'net.fnlb.errors.common.invalid_request',
 	CommonUnableToProcessRequest = 'net.fnlb.errors.common.unable_to_process_request',

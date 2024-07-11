@@ -7,6 +7,27 @@ interface ErrorSchema {
 }
 
 export const errorMap = {
+	[ErrorCodes.GenericUnknown]: {
+		type: ErrorTypes.General,
+		message: 'An unknown error occurred. This may be due to an unexpected condition in the server.'
+	},
+	[ErrorCodes.GenericInternalError]: {
+		type: ErrorTypes.General,
+		message: 'An internal server error occurred. This may be due to an unhandled exception. Please try again.'
+	},
+	[ErrorCodes.GenericValidationFailed]: {
+		type: ErrorTypes.General,
+		message: 'Validation of the request data failed.'
+	},
+	[ErrorCodes.GenericParseFailed]: {
+		type: ErrorTypes.General,
+		message: 'The request could not be parsed. This may be due to a malformed input or an unsupported data format.'
+	},
+	[ErrorCodes.GenericNotFound]: {
+		type: ErrorTypes.General,
+		message: 'The requested resource does not exist.'
+	},
+
 	[ErrorCodes.CommonInvalidRequest]: {
 		type: ErrorTypes.General,
 		message: 'The request is not valid.'
