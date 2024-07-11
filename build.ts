@@ -3,13 +3,19 @@ import dts from 'bun-plugin-dts';
 
 await $`mkdir -p dist`;
 
+const dtsConfig = {
+	output: {
+		respectPreserveConstEnum: true
+	}
+};
+
 await Bun.build({
 	entrypoints: ['./src/types/index.ts'],
 	outdir: './dist/types/',
 	minify: true,
 	target: 'node',
 	format: 'esm',
-	plugins: [dts()]
+	plugins: [dts(dtsConfig)]
 });
 
 await Bun.build({
@@ -18,7 +24,7 @@ await Bun.build({
 	minify: true,
 	target: 'node',
 	format: 'esm',
-	plugins: [dts()]
+	plugins: [dts(dtsConfig)]
 });
 
 await Bun.build({
@@ -27,5 +33,5 @@ await Bun.build({
 	minify: true,
 	target: 'node',
 	format: 'esm',
-	plugins: [dts()]
+	plugins: [dts(dtsConfig)]
 });
