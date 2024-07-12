@@ -1,7 +1,7 @@
 {
 	"name": "@fnlb-project/shared",
 	"description": "FNLB Shared Library",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"type": "module",
 	"publishConfig": {
 		"access": "public"
