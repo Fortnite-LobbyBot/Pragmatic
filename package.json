@@ -18,16 +18,16 @@
 	"files": ["dist"],
 	"exports": {
 		"./errors": {
-			"default": "./dist/errors/index.js",
-			"types": "./dist/errors/index.d.ts"
+			"types": "./dist/errors/index.d.ts",
+			"default": "./dist/errors/index.js"
 		},
 		"./types": {
-			"default": "./dist/types/index.js",
-			"types": "./dist/types/index.d.ts"
+			"types": "./dist/types/index.d.ts",
+			"default": "./dist/types/index.js"
 		},
 		"./util": {
-			"default": "./dist/util/index.js",
-			"types": "./dist/util/index.d.ts"
+			"types": "./dist/util/index.d.ts",
+			"default": "./dist/util/index.js"
 		}
 	},
 	"devDependencies": {
