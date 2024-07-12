@@ -69,9 +69,13 @@ export const errorMap = {
 		type: ErrorTypes.General,
 		message: 'Your account is banned from the service.'
 	},
+	[ErrorCodes.AuthPasswordConfirmationInvalid]: {
+		type: ErrorTypes.Input,
+		message: 'Sorry, the password is invalid or does not match.'
+	},
 	[ErrorCodes.LoginInvalidCredentials]: {
 		type: ErrorTypes.Input,
-		message: 'The email or password is incorrect'
+		message: 'The email or password is incorrect.'
 	},
 	[ErrorCodes.LoginInvalidEmail]: {
 		type: ErrorTypes.Input,
