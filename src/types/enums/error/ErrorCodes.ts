@@ -41,7 +41,7 @@ export enum InputErrorCodes {
 	LoginInvalidOrUsedEmail = 'net.fnlb.errors.login.invalid_or_used_email',
 
 	// * Auth
-	AuthPasswordConfirmationInvalid = 'net.fnlb.errors.auth.invalid_password_confirmation',
+	AuthPasswordConfirmationInvalid = 'net.fnlb.errors.auth.invalid_password_confirmation'
 }
 
 export type ErrorCodes = GeneralErrorCodes | InputErrorCodes;
