@@ -1,3 +1,5 @@
+export type * from './account/ClientAccount';
+
 export type * from './bot/Bot';
 export type * from './bot/ClientBot';
 export type * from './bot/ConnectedBot';
