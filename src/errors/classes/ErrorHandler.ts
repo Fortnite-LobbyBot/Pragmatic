@@ -7,7 +7,7 @@ import type { IParsedError } from '../../types/interfaces/error/ParsedError';
 
 export abstract class ErrorHandler {
 	public static getError<T extends ErrorCodes>(error: T): (typeof errorMap)[T] {
-		return errorMap[error];
+		return errorMap[error] ?? errorMap[ErrorCodes.GenericUnknown];
 	}
 
 	public static getErrorResponse(errors: ErrorCodes | ErrorCodes[], input?: ErrorInputTypes): IErrorResponse {
