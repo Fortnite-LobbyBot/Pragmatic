@@ -1,7 +1,7 @@
 {
 	"name": "@fnlb-project/shared",
 	"description": "FNLB Shared Library",
-	"version": "1.0.8",
+	"version": "1.1.0",
 	"type": "module",
 	"publishConfig": {
 		"access": "public"
@@ -34,7 +34,7 @@
 		"@biomejs/biome": "^1.8.3",
 		"@types/bun": "^1.1.6",
 		"bun-plugin-dts": "^0.2.3",
-		"typescript": "^5.5.3"
+		"typescript": "^5.5.4"
 	},
 	"packageManager": "bun@1.1.17"
 }
