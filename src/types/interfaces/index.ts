@@ -12,6 +12,13 @@ export type * from './category/DBCategory';
 
 export type * from './cosmetic/CosmeticVariants';
 
+export type * from './error/BaseError';
+export type * from './error/Error';
+export type * from './error/ErrorResponse';
+export type * from './error/GeneralError';
+export type * from './error/InputError';
+export type * from './error/ParsedError';
+
 export type * from './party/PartyMember';
 
 export type * from './user/ClientUser';
