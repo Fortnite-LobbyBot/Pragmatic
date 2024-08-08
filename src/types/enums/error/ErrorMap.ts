@@ -9,11 +9,11 @@ interface ErrorSchema {
 export const errorMap = {
 	[ErrorCodes.GenericUnknown]: {
 		type: ErrorTypes.General,
-		message: 'An unknown error occurred. This may be due to an unexpected condition in the server.'
+		message: 'An unknown error occurred. Please try again later.'
 	},
 	[ErrorCodes.GenericInternalError]: {
 		type: ErrorTypes.General,
-		message: 'An internal server error occurred. This may be due to an unhandled exception. Please try again.'
+		message: 'An internal error occurred. Please try again later.'
 	},
 	[ErrorCodes.GenericValidationFailed]: {
 		type: ErrorTypes.General,
@@ -34,7 +34,7 @@ export const errorMap = {
 	},
 	[ErrorCodes.CommonUnableToProcessRequest]: {
 		type: ErrorTypes.General,
-		message: 'Unable to process the request. Please try again.'
+		message: 'Unable to process the request. Please try again later.'
 	},
 	[ErrorCodes.CommonInvalidFieldsLength]: {
 		type: ErrorTypes.General,
@@ -104,15 +104,15 @@ export const errorMap = {
 	},
 	[ErrorCodes.Oauth2UnableToFetchConnections]: {
 		type: ErrorTypes.General,
-		message: 'Unable to obtain user connections. Please try again later.'
+		message: 'Unable to obtain connections. Please try again later.'
 	},
 	[ErrorCodes.Oauth2UserWithoutConnection]: {
 		type: ErrorTypes.General,
-		message: 'User does not have connections. Please try again later.'
+		message: 'No connections found. Please add a connection and try again later.'
 	},
 	[ErrorCodes.Oauth2ConnectionNotVerified]: {
 		type: ErrorTypes.General,
-		message: 'User does have a connection, but the connection is not verified. Please try again later.'
+		message: 'The connection is not verified. Please try again later.'
 	},
 
 	[ErrorCodes.ReleaseNotFound]: {
