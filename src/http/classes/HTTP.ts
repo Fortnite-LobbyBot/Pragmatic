@@ -7,13 +7,23 @@ type RequestOptions = {
 	body?: any;
 };
 
+type ResponseObject<TResponse> =
+	| {
+			readonly data: undefined;
+			readonly errors: IParsedError[];
+	  }
+	| {
+			readonly data: TResponse;
+			readonly errors: undefined;
+	  };
+
 export abstract class HTTP {
 	public static get<TResponse>(
 		service: string,
 		endpoint: string,
 		token?: string | undefined,
 		options?: Omit<RequestOptions, 'method'>
-	): Promise<TResponse | IParsedError[]> {
+	): Promise<ResponseObject<TResponse>> {
 		return this.request(service, endpoint, token, { ...options, method: 'GET' });
 	}
 
@@ -22,7 +32,7 @@ export abstract class HTTP {
 		endpoint: string,
 		token?: string | undefined,
 		options?: Omit<RequestOptions, 'method'>
-	): Promise<TResponse | IParsedError[]> {
+	): Promise<ResponseObject<TResponse>> {
 		return this.request(service, endpoint, token, { ...options, method: 'POST' });
 	}
 
@@ -31,15 +41,16 @@ export abstract class HTTP {
 		endpoint: string,
 		token?: string | undefined,
 		options?: Omit<RequestOptions, 'method'>
-	): Promise<TResponse | IParsedError[]> {
+	): Promise<ResponseObject<TResponse>> {
 		return this.request(service, endpoint, token, { ...options, method: 'PUT' });
 	}
+
 	public static patch<TResponse>(
 		service: string,
 		endpoint: string,
 		token?: string | undefined,
 		options?: Omit<RequestOptions, 'method'>
-	): Promise<TResponse | IParsedError[]> {
+	): Promise<ResponseObject<TResponse>> {
 		return this.request(service, endpoint, token, { ...options, method: 'PATCH' });
 	}
 
@@ -48,7 +59,7 @@ export abstract class HTTP {
 		endpoint: string,
 		token?: string | undefined,
 		options?: Omit<RequestOptions, 'method'>
-	): Promise<TResponse | IParsedError[]> {
+	): Promise<ResponseObject<TResponse>> {
 		return this.request(service, endpoint, token, { ...options, method: 'DELETE' });
 	}
 
@@ -57,7 +68,7 @@ export abstract class HTTP {
 		endpoint: string,
 		token: string | undefined,
 		options: RequestOptions
-	): Promise<TResponse | IParsedError[]> {
+	): Promise<ResponseObject<TResponse>> {
 		const requestOptions = {
 			...options,
 			body: options.body ? JSON.stringify(options.body) : undefined,
@@ -71,11 +82,13 @@ export abstract class HTTP {
 		return HTTP.parseResponse<TResponse>(response);
 	}
 
-	private static async parseResponse<TResponse>(response: Response) {
+	private static async parseResponse<TResponse>(response: Response): Promise<ResponseObject<TResponse>> {
 		const json = (await response.json()) as TResponse;
 
 		const errors = ErrorHandler.parseErrorResponse(json);
 
-		return errors ?? json;
+		if (errors) return { data: undefined, errors: errors } as const;
+
+		return { data: json, errors: undefined } as const;
 	}
 }
