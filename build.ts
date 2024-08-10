@@ -35,3 +35,12 @@ await Bun.build({
 	format: 'esm',
 	plugins: [dts(dtsConfig)]
 });
+
+await Bun.build({
+	entrypoints: ['./src/http/index.ts'],
+	outdir: './dist/http/',
+	minify: true,
+	target: 'node',
+	format: 'esm',
+	plugins: [dts(dtsConfig)]
+});
