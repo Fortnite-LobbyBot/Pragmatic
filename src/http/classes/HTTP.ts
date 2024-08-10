@@ -11,69 +11,71 @@ export abstract class HTTP {
 	public static get<TResponse>(
 		service: string,
 		endpoint: string,
+		token?: string | undefined,
 		options?: Omit<RequestOptions, 'method'>
 	): Promise<TResponse | IParsedError[]> {
-		return this.fetch(service, endpoint, { ...options, method: 'GET' });
+		return this.request(service, endpoint, token, { ...options, method: 'GET' });
 	}
 
 	public static post<TResponse>(
 		service: string,
 		endpoint: string,
+		token?: string | undefined,
 		options?: Omit<RequestOptions, 'method'>
 	): Promise<TResponse | IParsedError[]> {
-		return this.fetch(service, endpoint, { ...options, method: 'POST' });
+		return this.request(service, endpoint, token, { ...options, method: 'POST' });
 	}
 
 	public static put<TResponse>(
 		service: string,
 		endpoint: string,
+		token?: string | undefined,
 		options?: Omit<RequestOptions, 'method'>
 	): Promise<TResponse | IParsedError[]> {
-		return this.fetch(service, endpoint, { ...options, method: 'PUT' });
+		return this.request(service, endpoint, token, { ...options, method: 'PUT' });
 	}
 	public static patch<TResponse>(
 		service: string,
 		endpoint: string,
+		token?: string | undefined,
 		options?: Omit<RequestOptions, 'method'>
 	): Promise<TResponse | IParsedError[]> {
-		return this.fetch(service, endpoint, { ...options, method: 'PATCH' });
+		return this.request(service, endpoint, token, { ...options, method: 'PATCH' });
 	}
 
 	public static delete<TResponse>(
 		service: string,
 		endpoint: string,
+		token?: string | undefined,
 		options?: Omit<RequestOptions, 'method'>
 	): Promise<TResponse | IParsedError[]> {
-		return this.fetch(service, endpoint, { ...options, method: 'DELETE' });
+		return this.request(service, endpoint, token, { ...options, method: 'DELETE' });
 	}
 
-	public static async fetch<TResponse>(
+	public static async request<TResponse>(
 		service: string,
 		endpoint: string,
+		token: string | undefined,
 		options: RequestOptions
 	): Promise<TResponse | IParsedError[]> {
 		const requestOptions = {
 			...options,
-			body: JSON.stringify(options.body),
-			headers: options.headers
+			body: options.body ? JSON.stringify(options.body) : undefined,
+			headers: options.headers ?? {}
 		};
+
+		if (token) requestOptions.headers['Authorization'] = token;
 
 		const response = await fetch(service + endpoint, requestOptions);
 
 		return HTTP.parseResponse<TResponse>(response);
 	}
 
-	private static parseResponse<TResponse>(response: Response) {
-		const contentType = response.headers.get('Content-Type');
+	private static async parseResponse<TResponse>(response: Response) {
+		const json = (await response.json()) as TResponse;
 
-		if (contentType?.startsWith('application/json')) {
-			const json = response.json() as Promise<TResponse>;
+		const errors = ErrorHandler.parseErrorResponse(json);
 
-			const errors = ErrorHandler.parseErrorResponse(json);
-
-			return errors ?? json;
-		}
-
-		throw new Error('Unknown response type');
+		return errors ?? json;
 	}
 }
