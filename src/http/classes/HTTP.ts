@@ -4,7 +4,7 @@ import type { IParsedError } from '../../types';
 type RequestOptions = {
 	method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 	headers?: Record<string, string>;
-	body?: string;
+	body?: any;
 };
 
 export abstract class HTTP {
@@ -54,6 +54,7 @@ export abstract class HTTP {
 	): Promise<TResponse | IParsedError[]> {
 		const requestOptions = {
 			...options,
+			body: JSON.stringify(options.body),
 			headers: options.headers
 		};
 

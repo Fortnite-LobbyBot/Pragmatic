@@ -29,8 +29,12 @@ export abstract class ErrorHandler {
 		return error.errors;
 	}
 
-	public static isErrorResponse(error?: IErrorResponse): error is IErrorResponse {
+	public static isErrorResponse(error?: any): error is IErrorResponse {
 		return error?.type === 'error';
+	}
+
+	public static isParsedErrorResponse(error?: any): error is IParsedError[] {
+		return error?.[0]?.type === 'error';
 	}
 
 	private static parseErrorCode(code: ErrorCodes, input?: ErrorInputTypes): IError {
