@@ -33,10 +33,6 @@ export abstract class ErrorHandler {
 		return error?.type === 'error';
 	}
 
-	public static isParsedErrorResponse(error?: any): error is IParsedError[] {
-		return error?.[0]?.type === 'error';
-	}
-
 	private static parseErrorCode(code: ErrorCodes, input?: ErrorInputTypes): IError {
 		const { type, message } = ErrorHandler.getError(code);
 
