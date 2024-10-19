@@ -28,6 +28,7 @@ export interface ICategoryConfig {
 
 	disableMatchmakingChecks?: boolean;
 	disableJoinMessages?: boolean;
+	disableAutomaticMessages?: boolean;
 
 	inviteTimeout?: number;
 
